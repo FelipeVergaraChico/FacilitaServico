@@ -2,7 +2,7 @@
     <div class="header">
         <div class="header-left">
             <nav class="nav">
-                <a href="#">Inicio</a>
+                <a href="/">Inicio</a>
                 <a href="#">Serviços</a>
                 <a href="#">Historico</a>
                 <a href="#">Contato</a>
@@ -13,8 +13,12 @@
                 <option>Para Autônomos</option>
                 <option>Para Clientes</option>
             </select>
-            <button class="btn btn-outline">Logar</button>
-            <button class="btn btn-primary">Registrar</button>
+            <RouterLink to="/login">
+                <button class="btn btn-outline">Logar</button>
+            </RouterLink>
+            <RouterLink to="/register">
+                <button class="btn btn-primary" >Registrar</button>
+            </RouterLink>
         </div>
     </div>
 </template>

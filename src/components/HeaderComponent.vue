@@ -2,19 +2,19 @@
     <div class="header">
         <div class="header-left">
             <nav class="nav">
-                <a href="#">Inicio</a>
-                <a href="#">Serviços</a>
+                <a href="/">Inicio</a>
+                <a href="/jobs">Serviços</a>
                 <a href="#">Historico</a>
                 <a href="#">Contato</a>
             </nav>
         </div>
         <div class="header-right">
-            <select v-model="perfilSelecionado" class="select">
-                <option>Para Autônomos</option>
-                <option>Para Clientes</option>
-            </select>
-            <button class="btn btn-outline">Logar</button>
-            <button class="btn btn-primary">Registrar</button>
+            <RouterLink to="/login">
+                <button class="btn btn-outline">Logar</button>
+            </RouterLink>
+            <RouterLink to="/register">
+                <button class="btn btn-primary" >Registrar</button>
+            </RouterLink>
         </div>
     </div>
 </template>
@@ -67,12 +67,6 @@ export default {
     gap: 12px
 }
 
-.select {
-    padding: 6px 12px;
-    font-size: 14px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
 
 .btn {
     padding: 6px 14px;

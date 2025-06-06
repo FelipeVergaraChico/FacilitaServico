@@ -1,9 +1,9 @@
 <template>
-  <q-page class="flex flex-center bg-grey-10">
+  <q-page class="flex flex-center">
     <div class="login-card q-pa-lg bg-white rounded-borders shadow-2">
       <h6 class="text-grey-8 q-mb-md">Login</h6>
 
-      <q-form @submit.prevent="onLogin">
+      <q-form @submit.prevent="handleLogin">
         <div class="q-mb-md">
           <label for="email" class="text-subtitle2">Email</label>
           <q-input
@@ -30,48 +30,49 @@
           />
         </div>
 
-        <q-btn label="Entrar" type="submit" color="dark" class="full-width q-mb-md" />
+        <q-btn :loading="loading" label="Entrar" type="submit" color="dark" class="full-width q-mb-md" />
 
         <div class="text-caption q-mt-sm">
           <a href="#" class="text-primary">Esqueci minha senha</a><br />
-          <a href="/register" class="text-primary">Ainda não se cadastrou?</a>
+          <router-link to="/register" class="text-primary">Ainda não se cadastrou?</router-link>
         </div>
       </q-form>
     </div>
   </q-page>
 </template>
 
-<script>
-export default {
-  name: 'LoginPage',
-  data() {
-    return {
-      email: '',
-      password: ''
-    }
-  },
-  methods: {
-    onLogin() {
-      // Simulação de login
-      const validEmail = 'test@example.com'
-      const validPassword = '123456'
+<script setup>
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { useAuth } from '../services/useAuth' // ou ajuste o caminho conforme sua estrutura
 
-      if (this.email === validEmail && this.password === validPassword) {
-        // Sucesso: redirecionar para /dashboard
-        this.$router.push('/')
-      } else {
-        // Erro: mostrar alerta ou snackbar
-        this.$q.notify({
-          type: 'negative',
-          message: 'Email ou senha inválidos'
-        })
-      }
-    }
+const email = ref('')
+const password = ref('')
+const router = useRouter()
+
+const { login, error, loading } = useAuth()
+
+const handleLogin = async () => {
+  const success = await login(email.value, password.value)
+
+  if (success) {
+    alert('Login realizado com sucesso!')
+    router.push('/')
+  } else {
+    alert('Erro ao realizar login: ' + error.value)
+    console.log(error.message);
   }
 }
 </script>
 
 <style scoped>
+.q-page {
+  background-image: url('../assets/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
 
 .login-card {
   width: 300px;

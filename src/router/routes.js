@@ -21,11 +21,27 @@ const routes = [
 
   {
   path: '/register',
-  component: () => import('layouts/LoginLayout.vue'), // ou outro layout
+  component: () => import('layouts/LoginLayout.vue'),
   children: [
     { path: '', component: () => import('pages/RegisterPage.vue') }
   ]
 },
+
+  {
+    path: '/jobs',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/JobsPage.vue') }
+    ]
+  },
+
+    {
+    path: '/newjob',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/AddNewJob.vue') }
+    ]
+  },
 
   {
     path: '/:catchAll(.*)*',

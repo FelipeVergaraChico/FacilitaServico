@@ -60,7 +60,7 @@ const handleLogin = async () => {
     router.push('/')
   } else {
     alert('Erro ao realizar login: ' + error.value)
-    console.log(error.message);
+    console.log(error.value.message);
   }
 }
 </script>

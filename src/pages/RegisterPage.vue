@@ -84,7 +84,7 @@
 
         <div class="q-mb-md">
           <q-select
-            v-if="form.position === 'Autônomo'"
+            v-if="form.position === 'Self-employed'"
             v-model="form.job"
             :options="professionOptions"
             label="Profissão"
@@ -124,7 +124,7 @@
       </q-form>
       <div class="text-caption q-mt-sm">
         <a href="#" class="text-primary">Esqueci minha senha</a><br />
-        <a href="/login" class="text-primary">Já possui uma conta?</a>
+        <router-link to="/login" class="text-primary">Já possui uma conta?</router-link>
       </div>
     </div>
   </q-page>
@@ -208,7 +208,7 @@ export default {
         alert('Registro realizado com sucesso!')
         this.$router.push('/login')
       } else {
-        alert('Erro ao registrar: ' + this.authError.message)
+        alert('Erro ao registrar: ' + this.authError.value)
       }
     },
   },

@@ -1,17 +1,17 @@
 import { ref } from 'vue'
-import axios from 'axios'
+import { api } from 'src/boot/axios'
 
 export function useAuth() {
   const error = ref(null)
   const loading = ref(false)
 
 
-  const register = async (name, email, password, cpfcnpj, address, cep, birthday, position, job, confirmPassword) => {
+  const register = async ( name, email, password, cpfcnpj, address, cep, birthday, position, job, confirmPassword) => {
     loading.value = true
     error.value = null
 
     try {
-      const response = await axios.post('https://facilitaservicoapi.onrender.com/user/register', {
+      const response = await api.post('/user/register', {
         name,
         email,
         job,
@@ -42,7 +42,7 @@ export function useAuth() {
     error.value = null
 
     try {
-      const response = await axios.post('https://facilitaservicoapi.onrender.com/user/login', {
+      const response = await api.post('/user/login', {
         email,
         password,
       })

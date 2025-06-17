@@ -157,6 +157,7 @@ export default {
         'Artesão',
         'Manicure/Pedicure',
         'Cabeleireiro',
+        'Barbeiro',
         'Eletricista',
         'Encanador',
         'Mecânico',

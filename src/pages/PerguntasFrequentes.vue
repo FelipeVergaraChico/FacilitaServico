@@ -6,7 +6,7 @@
         <q-separator inset class="q-mb-md" />
 
         <div class="q-mb-md">
-          <p>Encontre respostas rápidas para as dúvidas mais comuns sobre como usar o **[Nome do Seu E-commerce de Serviços]** como cliente ou prestador de serviço.</p>
+          <p>Encontre respostas rápidas para as dúvidas mais comuns sobre como usar o Facilita Serviços como cliente ou prestador de serviço.</p>
         </div>
 
         <q-list bordered class="rounded-borders">
@@ -18,7 +18,7 @@
           >
             <q-card>
               <q-card-section>
-                <h6 class="text-subtitle1 text-weight-medium">O que é o **[Nome do Seu E-commerce de Serviços]**?</h6>
+                <h6 class="text-subtitle1 text-weight-medium">O que é o Facilita Serviços?</h6>
                 <p>Somos uma plataforma online que conecta pessoas e empresas que precisam de serviços (Clientes) a profissionais qualificados que oferecem esses serviços (Prestadores de Serviço), como fotografia, tradução, programação, design, consultoria, entre outros.</p>
 
                 <h6 class="text-subtitle1 text-weight-medium q-mt-md">Como funciona o **[Nome do Seu E-commerce de Serviços]**?</h6>
@@ -39,7 +39,7 @@
             <q-card>
               <q-card-section>
                 <h6 class="text-subtitle1 text-weight-medium">Como faço para contratar um serviço?</h6>
-                <p>1. Navegue pelas categorias ou use a barra de pesquisa para encontrar o serviço que precisa.<br>2. Clique no anúncio para ver detalhes do serviço e o perfil do prestador.<br>3. Entre em contato com o prestador através do chat da plataforma para discutir detalhes, tirar dúvidas e solicitar um orçamento.<br>4. Após acordar os termos, contrate o serviço e efetue o pagamento pela plataforma.</p>
+                <p>1. vá até a opção "serviços" .<br>2. Clique no anúncio para ver detalhes do serviço e o perfil do prestador.<br>3. Entre em contato com o prestador através do chat da plataforma para discutir detalhes, tirar dúvidas e solicitar um orçamento.<br>4. Após acordar os termos, contrate o serviço e efetue o pagamento pela plataforma.</p>
 
                 <h6 class="text-subtitle1 text-weight-medium q-mt-md">Posso negociar o preço diretamente com o prestador?</h6>
                 <p>Sim, você pode discutir os detalhes do serviço e o preço com o prestador através do chat da plataforma antes de finalizar a contratação. O valor final deve ser acordado e refletido no pedido formalizado na plataforma.</p>
@@ -58,8 +58,6 @@
           >
             <q-card>
               <q-card-section>
-                <h6 class="text-subtitle1 text-weight-medium">Como me cadastro como prestador de serviço?</h6>
-                <p>Vá até a opção "Registrar" ou "Quero ser Prestador", preencha seus dados, crie seu perfil profissional e comece a cadastrar seus anúncios de serviço com detalhes, portfólio e preços.</p>
 
                 <h6 class="text-subtitle1 text-weight-medium q-mt-md">Qual a taxa cobrada pela plataforma?</h6>
                 <p>Cobramos uma taxa de serviço sobre o valor total de cada transação concluída com sucesso através da plataforma. Essa taxa é claramente informada antes da aceitação do serviço. [Especifique a porcentagem ou método de cálculo, se desejar, ex: Atualmente, nossa taxa é de X% sobre o valor do serviço].</p>

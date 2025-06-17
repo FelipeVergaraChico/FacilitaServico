@@ -106,11 +106,11 @@
         </div>
 
         <div class="q-mb-lg">
-          <label for="confirmPassword" class="text-subtitle2">Confirmar Senha</label>
+          <label for="confirmpassword" class="text-subtitle2">Confirmar Senha</label>
           <q-input
-            v-model="form.confirmPassword"
+            v-model="form.confirmpassword"
             type="password"
-            id="confirmPassword"
+            id="confirmpassword"
             placeholder="Confirmar Senha"
             dense
             outlined
@@ -131,7 +131,7 @@
 </template>
 
 <script>
-import { useAuth } from '../services/useAuth' // caminho ajustado conforme sua pasta
+import { useAuth } from '../services/useAuth'
 export default {
   name: 'RegisterPage',
   data() {
@@ -140,7 +140,7 @@ export default {
         name: '',
         email: '',
         password: '',
-        confirmPassword: '',
+        confirmpassword: '',
         cpfcnpj: '',
         address: '',
         cep: '',
@@ -170,7 +170,7 @@ export default {
   },
   computed: {
     passwordMismatch() {
-      return this.form.password !== this.form.confirmPassword
+      return this.form.password !== this.form.confirmpassword
     },
   },
   created() {
@@ -201,8 +201,10 @@ export default {
         this.form.birthday,
         this.form.position,
         this.form.job,
-        this.form.confirmPassword
+        this.form.confirmpassword
       )
+
+      console.log('Registro realizado:', success)
 
 
       if (success) {
@@ -210,6 +212,7 @@ export default {
         this.$router.push('/login')
       } else {
         alert('Erro ao registrar: ' + this.authError.value)
+        console.error('Erro ao registrar:', this.authError.value)
       }
     },
   },

@@ -4,6 +4,7 @@
       <nav class="nav">
         <a href="/">Inicio</a>
         <a href="/jobs">Serviços</a>
+        <a href="/chat">Chats</a>
         <a href="/history">Histórico</a>
         <a href="#">Contato</a>
       </nav>
@@ -90,6 +91,7 @@ export default {
 <style>
 .header {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   padding: 16px 32px;

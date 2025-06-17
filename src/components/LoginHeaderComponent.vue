@@ -3,9 +3,9 @@
         <div class="header-left">
             <nav class="nav">
                 <a href="/">Inicio</a>
-                <a href="#">Serviços</a>
-                <a href="#">Historico</a>
-                <a href="#">Contato</a>
+                <a href="/jobs">Serviços</a>
+                <a href="/history">Historico</a>
+                <a href="/contact">Contato</a>
             </nav>
         </div>
     </div>

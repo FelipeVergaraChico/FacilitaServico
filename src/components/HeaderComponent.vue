@@ -4,16 +4,21 @@
       <nav class="nav">
         <a href="/">Inicio</a>
         <a href="/jobs">Serviços</a>
-        <a href="#">Histórico</a>
+        <a href="/history">Histórico</a>
         <a href="#">Contato</a>
       </nav>
     </div>
     <div class="header-right">
       <template v-if="isLoggedIn">
         <button class="btn btn-outline" @click="logout">Sair</button>
-        <RouterLink to="/profile">
-          <button class="btn btn-primary">Perfil</button>
-        </RouterLink>
+        <button class="avatar-btn" @click="$router.push('/myprofile')">
+          <img
+            v-if="user.image"
+            :src="`https://facilitaservicoapi.onrender.com/img/${user.image}`"
+            alt="Perfil"
+            class="avatar-img"
+          />
+        </button>
       </template>
       <template v-else>
         <RouterLink to="/login">
@@ -28,19 +33,41 @@
 </template>
 
 <script>
+import { api } from 'src/boot/axios'
+
 export default {
   name: 'HeaderComponent',
   data() {
     return {
       isLoggedIn: false,
+      user: {
+        image: ''
+      }
     }
   },
   created() {
     this.checkAuth()
+    if (this.isLoggedIn) {
+      this.fetchUser()
+    }
   },
   methods: {
     checkAuth() {
       this.isLoggedIn = !!localStorage.getItem('token')
+    },
+    async fetchUser() {
+      const token = localStorage.getItem('token')
+      try {
+        const response = await api.get('/user/myprofile', {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        })
+        this.user = response.data
+      } catch (error) {
+        this.user = { image: '' }
+        console.error('Erro ao buscar usuário:', error)
+      }
     },
     logout() {
       localStorage.removeItem('token')
@@ -48,6 +75,15 @@ export default {
       this.$router.push('/login')
     },
   },
+  watch: {
+    isLoggedIn(newVal) {
+      if (newVal) {
+        this.fetchUser()
+      } else {
+        this.user = { image: '' }
+      }
+    }
+  }
 }
 </script>
 
@@ -113,5 +149,28 @@ export default {
 
 .btn-primary:hover {
   background-color: #333;
+}
+
+.avatar-btn {
+  border: none;
+  background: none;
+  padding: 0;
+  margin-right: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.avatar-img, .avatar-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #eee;
+  display: block;
+}
+
+.avatar-placeholder {
+  background: #ccc;
 }
 </style>

@@ -25,6 +25,7 @@ export function useServiceAd() {
       return response.data
     } catch (err) {
       error.value = err.response?.data?.message || 'Erro ao anunciar serviço'
+      console.log('Error creating service ad:', err)
       return null
     } finally {
       loading.value = false

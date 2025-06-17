@@ -44,6 +44,45 @@ const routes = [
   },
 
   {
+    path: '/myprofile',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/ProfilePage.vue') }
+    ]
+  },
+
+  {
+    path: '/edit-profile',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/EditProfile.vue') }
+    ]
+  },
+
+  {
+    path: '/servicead/:id',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/EditJob.vue') }
+    ]
+  },
+
+  {
+    path: '/appointments/:id',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/AppointmentPage.vue') }
+    ]
+  },
+  {
+    path: '/history',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/HistoryPage.vue') }
+    ]
+  },
+
+  {
     path: '/:catchAll(.*)*',
     component: () => import('pages/ErrorNotFound.vue')
   }

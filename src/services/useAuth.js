@@ -1,10 +1,11 @@
 import { ref } from 'vue'
 import { api } from 'src/boot/axios'
+import { useRouter } from 'vue-router'
 
 export function useAuth() {
   const error = ref(null)
   const loading = ref(false)
-
+  const router = useRouter()
 
   const register = async ( name, email, password, cpfcnpj, address, cep, birthday, position, job, confirmPassword) => {
     loading.value = true
@@ -66,5 +67,21 @@ export function useAuth() {
     // redirecionar ou limpar o estado global, se necessário
   }
 
-  return { login, logout, error, loading, register  }
+  const checkUser = async () => {
+    try {
+      const res = await api.get('/user/checkuser', {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      })
+      console.log('Usuário verificado:', res.data)
+      return res.data
+      
+    } catch (error) {
+      console.error('Erro ao verificar usuário:', error)
+      return router.push('/login') // Redireciona para a página de login se houver erro
+    }
+  }
+
+  return { login, logout, error, loading, register, checkUser }
 }

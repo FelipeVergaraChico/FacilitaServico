@@ -34,10 +34,11 @@
                 dense
               />
 
+
               <q-select
                 v-model="category"
                 :options="categories"
-                label="Tipo de Serviço"
+                label="Categoria"
                 outlined
                 dense
                 class="q-mb-md"
@@ -60,6 +61,7 @@
 
 <script>
 import { useServiceAd } from '../services/useServiceAdd'
+import { checkUser } from '../services/useAuth'
 
 export default {
   name: 'AddNewJob',
@@ -69,41 +71,72 @@ export default {
       description: '',
       price: null,
       category: '',
-      categories: ['Beleza', 'Serviços Gerais', 'Educação'],
+      categories: [
+        { label: 'Designer Gráfico', value: 'Designer Gráfico' },
+        { label: 'Desenvolvedor Web', value: 'Desenvolvedor Web' },
+        { label: 'Fotógrafo', value: 'Fotógrafo' },
+        { label: 'Personal Trainer', value: 'Personal Trainer' },
+        { label: 'Consultor Financeiro', value: 'Consultor Financeiro' },
+        { label: 'Artesão', value: 'Artesão' },
+        { label: 'Manicure/Pedicure', value: 'Manicure/Pedicure' },
+        { label: 'Cabeleireiro', value: 'Cabeleireiro' },
+        { label: 'Barbeiro', value: 'Barbeiro' },
+        { label: 'Eletricista', value: 'Eletricista' },
+        { label: 'Encanador', value: 'Encanador' },
+        { label: 'Mecânico', value: 'Mecânico' },
+        { label: 'Redator Freelancer', value: 'Redator Freelancer' },
+        { label: 'Tradutor', value: 'Tradutor' },
+        { label: 'Professor Particular', value: 'Professor Particular' },
+        { label: 'Técnico de Informática', value: 'Técnico de Informática' },
+      ],
       error: null,
       loading: false,
     }
   },
   methods: {
-    async submitService() {
-      if (!this.title || !this.description || !this.price || !this.category) {
-        alert('Por favor, preencha todos os campos.')
-        return
+      async checkUser() {
+      try {
+        await checkUser()
+      } catch (err) {
+        this.$router.push('/login')
+        alert('Você precisa estar logado para acessar esta página.')
+        console.error(err)
       }
+    },
+  async submitService() {
+    if (!this.title || !this.description || !this.price || !this.category) {
+      alert('Por favor, preencha todos os campos.')
+      return
+    }
 
-      const { createServiceAd, error, loading } = useServiceAd()
+    this.loading = true
+    this.error = null
 
-      this.loading = true
-      this.error = null
-
-      const success = await createServiceAd(
+    try {
+      // Cria o anúncio
+      const { createServiceAd } = useServiceAd()
+      const sucesso = await createServiceAd(
         this.title,
         this.description,
         this.price,
-        this.category
+        this.category.label
       )
+      console.log(this.category.label)
 
-      this.loading = loading.value
-      this.error = error.value
-
-      if (success) {
+      if (sucesso) {
         alert('Anúncio criado com sucesso!')
         this.$router.push('/jobs')
       } else {
-        alert('Erro ao criar anúncio: ' + this.error)
+        alert('Erro ao criar anúncio.')
       }
-    },
+    } catch (err) {
+      alert('Erro inesperado ao criar anúncio.')
+      console.error(err)
+    } finally {
+      this.loading = false
+    }
   },
+},
 }
 </script>
 

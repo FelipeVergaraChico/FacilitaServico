@@ -1,6 +1,7 @@
 import { defineRouter } from '#q-app/wrappers'
 import { createRouter, createMemoryHistory, createWebHistory, createWebHashHistory } from 'vue-router'
 import routes from './routes'
+import { useAuth } from 'src/services/useAuth'
 
 /*
  * If not building with SSR mode, you can
@@ -24,6 +25,22 @@ export default defineRouter(function (/* { store, ssrContext } */) {
     // quasar.conf.js -> build -> vueRouterMode
     // quasar.conf.js -> build -> publicPath
     history: createHistory(process.env.VUE_ROUTER_BASE)
+  })
+
+  // Guard global
+  Router.beforeEach(async (to, from, next) => {
+    const publicPaths = ['/', '/login', '/register']
+    const isPublic = publicPaths.includes(to.path)
+    if (isPublic) {
+      return next()
+    }
+    try {
+      await useAuth().checkUser()
+      next()
+    } catch (err) {
+      console.error('User check failed:', err)
+      next('/login')
+    }
   })
 
   return Router

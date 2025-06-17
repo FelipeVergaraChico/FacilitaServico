@@ -3,7 +3,12 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/HomePage.vue') }
+      { path: '', component: () => import('pages/HomePage.vue') },
+      
+      { path: 'termos-de-uso', name: 'termosDeUso', component: () => import('pages/TermosDeUso.vue') },
+      { path: 'politica-de-privacidade', name: 'politicaDePrivacidade', component: () => import('pages/PoliticaDePrivacidade.vue') },
+      { path: 'perguntas-frequentes', name: 'perguntasFrequentes', component: () => import('pages/PerguntasFrequentes.vue') }
+      
     ]
   },
 
@@ -20,12 +25,12 @@ const routes = [
   },
 
   {
-  path: '/register',
-  component: () => import('layouts/LoginLayout.vue'),
-  children: [
-    { path: '', component: () => import('pages/RegisterPage.vue') }
-  ]
-},
+    path: '/register',
+    component: () => import('layouts/LoginLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/RegisterPage.vue') }
+    ]
+  },
 
   {
     path: '/jobs',
@@ -35,7 +40,7 @@ const routes = [
     ]
   },
 
-    {
+  {
     path: '/newjob',
     component: () => import('layouts/MainLayout.vue'),
     children: [
@@ -96,6 +101,7 @@ const routes = [
       { path: '', component: () => import('pages/ChatDetailPage.vue') }
     ]
   },
+
 
   {
     path: '/:catchAll(.*)*',

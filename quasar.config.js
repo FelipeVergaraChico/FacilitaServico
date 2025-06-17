@@ -42,7 +42,7 @@ export default defineConfig((/* ctx */) => {
       },
 
       vueRouterMode: 'history',
-      outDir: 'dist', // available values: 'hash', 'history'
+      outDir: 'dist/spa', // available values: 'hash', 'history'
       // vueRouterBase,
       // vueDevtools,
       // vueOptionsAPI: false,

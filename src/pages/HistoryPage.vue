@@ -55,7 +55,7 @@
 
 <script>
 import { api } from 'src/boot/axios'
-import { useAuth } from 'src/services/useAuth'
+import { useAuth } from '../services/useAuth'
 
 export default {
   data() {

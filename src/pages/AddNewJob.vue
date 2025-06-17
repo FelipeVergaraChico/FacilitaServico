@@ -61,7 +61,7 @@
 
 <script>
 import { useServiceAd } from '../services/useServiceAdd'
-import { checkUser } from '../services/useAuth'
+import { useAuth } from '../services/useAuth'
 
 export default {
   name: 'AddNewJob',
@@ -96,7 +96,7 @@ export default {
   methods: {
       async checkUser() {
       try {
-        await checkUser()
+        await useAuth().checkUser()
       } catch (err) {
         this.$router.push('/login')
         alert('Você precisa estar logado para acessar esta página.')

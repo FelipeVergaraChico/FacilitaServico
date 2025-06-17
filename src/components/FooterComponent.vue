@@ -12,9 +12,21 @@
     <div class="footer-content">
       <div class="footer-column">
         <h3>Para Autônomos</h3>
-        <p><a href="#">Trabalhe conosco</a></p>
-        <p><a href="#">Benefícios para você</a></p>
-        <p><a href="mailto:profissionais@facilitaservicos.com">profissionais@facilitaservicos.com</a></p>
+        <p>
+          <router-link to="/trabalhe-conosco">
+            Trabalhe conosco
+          </router-link>
+        </p>
+        <p>
+          <router-link to="/beneficios-para-voce">
+            Benefícios para você
+          </router-link>
+        </p>
+        <p>
+          <a href="mailto:profissionais@facilitaservicos.com">
+            profissionais@facilitaservicos.com
+          </a>
+        </p>
       </div>
 
       <div class="footer-column">
@@ -26,9 +38,15 @@
 
       <div class="footer-column">
         <h3>Atendimento</h3>
-        <p><strong>Usuário:</strong> <a href="mailto:contato@facilitaservicos.com">contato@facilitaservicos.com</a></p>
-        <p><strong>Empresas:</strong> <a href="mailto:corporativo@facilitaservicos.com">corporativo@facilitaservicos.com</a></p>
-        <p><strong>Profissionais:</strong> <a href="mailto:profissionais@facilitaservicos.com">profissionais@facilitaservicos.com</a></p>
+        <p>
+          <strong>Usuário:</strong> contato@facilitaservicos.com
+        </p>
+        <p>
+          <strong>Empresas:</strong> corporativo@facilitaservicos.com
+        </p>
+        <p>
+          <strong>Profissionais:</strong> profissionais@facilitaservicos.com
+        </p>
       </div>
     </div>
   </footer>
@@ -37,7 +55,7 @@
 <script>
 export default {
   name: 'FooterComponent'
-};
+}
 </script>
 
 <style scoped>
@@ -90,6 +108,14 @@ export default {
 }
 
 .footer-column a:hover {
+  text-decoration: underline;
+}
+
+.router-link {
+  color: #555;
+  text-decoration: none;
+}
+.router-link:hover {
   text-decoration: underline;
 }
 </style>

@@ -83,7 +83,7 @@
 
 <script>
 import { api } from 'src/boot/axios'
-import { checkUser } from '../services/useAuth'
+import { useAuth } from '../services/useAuth'
 
 export default {
   name: 'ServicosPage',
@@ -168,7 +168,7 @@ export default {
   methods: {
       async checkUser() {
       try {
-        await checkUser()
+        await useAuth().checkUser()
       } catch (err) {
         this.$router.push('/login')
         alert('Você precisa estar logado para acessar esta página.')

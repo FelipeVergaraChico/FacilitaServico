@@ -2,8 +2,8 @@
   <q-page class="flex flex-center">
     <div class="profile-card q-pa-lg bg-white rounded-borders shadow-2">
       <div class="row items-center q-mb-md">
-        <q-avatar size="64px">
-          <img :src="`https://facilitaservicoapi.onrender.com/img/${user.image}`" alt="avatar" />
+        <q-avatar size="64px" style="cursor: pointer;" @click="$router.push('/myprofile')">
+          <img :src="`https://facilitaservicoapi.onrender.com/img/${user.image}`" alt="avatar"/>
         </q-avatar>
         <div class="q-ml-md">
           <div class="text-h6">{{ user.name }}</div>
@@ -42,7 +42,7 @@
 
 <script>
 import { api } from 'src/boot/axios'
-import useAuth from '../services/useAuth'
+import { useAuth } from '../services/useAuth'
 
 export default {
   name: 'ProfilePage',

@@ -83,6 +83,21 @@ const routes = [
   },
 
   {
+    path: '/chat',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/ChatPage.vue') }
+    ]
+  },
+  {
+    path: '/chat/:id',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/ChatDetailPage.vue') }
+    ]
+  },
+
+  {
     path: '/:catchAll(.*)*',
     component: () => import('pages/ErrorNotFound.vue')
   }

@@ -14,23 +14,19 @@
 <script>
 import { defineComponent } from 'vue'
 import HeaderComponent from 'src/components/HeaderComponent.vue'
-import FooterComponent from '../components/FooterComponent.vue'
-
+import FooterComponent from 'src/components/FooterComponent.vue'
 
 export default defineComponent({
   name: 'MainLayout',
-
   components: {
     HeaderComponent,
     FooterComponent
   },
-
   data() {
     return {
       leftDrawerOpen: false
     }
   },
-
   methods: {
     toggleLeftDrawer() {
       this.leftDrawerOpen = !this.leftDrawerOpen
@@ -38,3 +34,7 @@ export default defineComponent({
   }
 })
 </script>
+
+<style>
+/* (seu CSS global de layout permanece inalterado) */
+</style>

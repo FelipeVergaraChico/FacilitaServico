@@ -10,25 +10,28 @@
     </div>
 
     <div class="footer-content">
+      <!-- Coluna “Para Autônomos” -->
       <div class="footer-column">
         <h3>Para Autônomos</h3>
-        <p><a href="#">Trabalhe conosco</a></p>
-        <p><a href="#">Benefícios para você</a></p>
-        <p><a href="mailto:profissionais@facilitaservicos.com">profissionais@facilitaservicos.com</a></p>
+        <p><router-link :to="{ name: 'WorkWithUs' }">Trabalhe conosco</router-link></p>
+        <p><router-link :to="{ name: 'BenefitsForYou' }">Benefícios para você</router-link></p>
+        <p>profissionais@facilitaservicos.com</p>
       </div>
 
+      <!-- Coluna “Ajuda” -->
       <div class="footer-column">
         <h3>Ajuda</h3>
-        <p><a href="#">Perguntas frequentes</a></p>
-        <p><a href="#">Política de privacidade</a></p>
-        <p><a href="#">Termos de uso</a></p>
+        <p>Perguntas frequentes</p>
+        <p>Política de privacidade</p>
+        <p>Termos de uso</p>
       </div>
 
+      <!-- Coluna “Atendimento” -->
       <div class="footer-column">
         <h3>Atendimento</h3>
-        <p><strong>Usuário:</strong> <a href="mailto:contato@facilitaservicos.com">contato@facilitaservicos.com</a></p>
-        <p><strong>Empresas:</strong> <a href="mailto:corporativo@facilitaservicos.com">corporativo@facilitaservicos.com</a></p>
-        <p><strong>Profissionais:</strong> <a href="mailto:profissionais@facilitaservicos.com">profissionais@facilitaservicos.com</a></p>
+        <p><strong>Usuário:</strong> contato@facilitaservicos.com</p>
+        <p><strong>Empresas:</strong> corporativo@facilitaservicos.com</p>
+        <p><strong>Profissionais:</strong> profissionais@facilitaservicos.com</p>
       </div>
     </div>
   </footer>
@@ -37,7 +40,7 @@
 <script>
 export default {
   name: 'FooterComponent'
-};
+}
 </script>
 
 <style scoped>
@@ -53,8 +56,9 @@ export default {
   margin-bottom: 20px;
 }
 
-.social-icons a {
-  margin: 0 8px;
+.social-icons {
+  display: flex;
+  gap: 16px;
 }
 
 .social-icons img {
@@ -65,31 +69,34 @@ export default {
 .footer-content {
   display: flex;
   justify-content: space-around;
-  flex-wrap: wrap;
-  text-align: left;
-}
-
-.footer-column {
-  margin: 10px;
-  max-width: 250px;
+  margin-top: 20px;
 }
 
 .footer-column h3 {
   margin-bottom: 10px;
-  font-size: 16px;
-  color: #333;
+  font-size: 1.125rem;
+  color: rgba(0,0,0,1);
 }
 
+/* Deixa todo <p> com 80% de opacidade exceto o <strong> */
 .footer-column p {
   margin: 5px 0;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.8);
 }
 
-.footer-column a {
-  color: #555;
+.footer-column p a {
+  color: inherit;
   text-decoration: none;
 }
 
-.footer-column a:hover {
+.footer-column p a:hover {
+  color: rgba(0, 0, 0, 1);
   text-decoration: underline;
+}
+
+.footer-column p strong {
+  font-weight: bold;
+  color: rgba(0, 0, 0, 1);
 }
 </style>

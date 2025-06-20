@@ -10,23 +10,20 @@
     </div>
 
     <div class="footer-content">
-      <!-- Coluna “Para Autônomos” -->
       <div class="footer-column">
         <h3>Para Autônomos</h3>
         <p><router-link :to="{ name: 'WorkWithUs' }">Trabalhe conosco</router-link></p>
         <p><router-link :to="{ name: 'BenefitsForYou' }">Benefícios para você</router-link></p>
-        <p>profissionais@facilitaservicos.com</p>
+        <p><a href="mailto:profissionais@facilitaservicos.com">profissionais@facilitaservicos.com</a></p>
       </div>
 
-      <!-- Coluna “Ajuda” -->
       <div class="footer-column">
         <h3>Ajuda</h3>
-        <p>Perguntas frequentes</p>
-        <p>Política de privacidade</p>
-        <p>Termos de uso</p>
+        <p><a href="/faq">Perguntas frequentes</a></p>
+        <p><a href="/privacy-policy">Política de privacidade</a></p>
+        <p><a href="/terms-of-use">Termos de uso</a></p>
       </div>
-
-      <!-- Coluna “Atendimento” -->
+      
       <div class="footer-column">
         <h3>Atendimento</h3>
         <p><strong>Usuário:</strong> <a href="mailto:contato@facilitaservicos.com">contato@facilitaservicos.com</a></p>

@@ -29,9 +29,9 @@
       <!-- Coluna “Atendimento” -->
       <div class="footer-column">
         <h3>Atendimento</h3>
-        <p><strong>Usuário:</strong> contato@facilitaservicos.com</p>
-        <p><strong>Empresas:</strong> corporativo@facilitaservicos.com</p>
-        <p><strong>Profissionais:</strong> profissionais@facilitaservicos.com</p>
+        <p><strong>Usuário:</strong> <a href="mailto:contato@facilitaservicos.com">contato@facilitaservicos.com</a></p>
+        <p><strong>Empresas:</strong> <a href="mailto:corporativo@facilitaservicos.com">corporativo@facilitaservicos.com</a></p>
+        <p><strong>Profissionais:</strong> <a href="mailto:profissionais@facilitaservicos.com">profissionais@facilitaservicos.com</a></p>
       </div>
     </div>
   </footer>

@@ -19,9 +19,9 @@
 
       <div class="footer-column">
         <h3>Ajuda</h3>
-        <p><a href="#">Perguntas frequentes</a></p>
-        <p><a href="#">Política de privacidade</a></p>
-        <p><a href="#">Termos de uso</a></p>
+        <p><a href="/faq">Perguntas frequentes</a></p>
+        <p><a href="/privacy-policy">Política de privacidade</a></p>
+        <p><a href="/terms-of-use">Termos de uso</a></p>
       </div>
 
       <div class="footer-column">

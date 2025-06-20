@@ -4,11 +4,42 @@ const routes = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/HomePage.vue') },
-      
-      { path: 'termos-de-uso', name: 'termosDeUso', component: () => import('pages/TermosDeUso.vue') },
-      { path: 'politica-de-privacidade', name: 'politicaDePrivacidade', component: () => import('pages/PoliticaDePrivacidade.vue') },
-      { path: 'perguntas-frequentes', name: 'perguntasFrequentes', component: () => import('pages/PerguntasFrequentes.vue') }
-      
+    ]
+  },
+
+  {
+    path: '/terms-of-use',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      {
+        path: '',
+        name: 'termsOfUse',
+        component: () => import('pages/TermosDeUso.vue')
+      }
+    ]
+  },
+
+  {
+    path: '/privacy-policy',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      {
+        path: '',
+        name: 'privacyPolicy',
+        component: () => import('pages/PoliticaDePrivacidade.vue')
+      }
+    ]
+  },
+
+  {
+    path: '/faq',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      {
+        path: '',
+        name: 'faq',
+        component: () => import('pages/PerguntasFrequentes.vue')
+      }
     ]
   },
 
